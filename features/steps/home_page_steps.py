@@ -3,7 +3,7 @@ from behave import given, when, then
 from time import sleep
 
 @when('Click on “Get a free subscription”')
-def click_get_free_suscription(context):
+def click_get_free_subscription(context):
     context.app.home_page.click_subscription_button()
 
 @then('Switch to the new tab')

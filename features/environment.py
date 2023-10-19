@@ -8,9 +8,25 @@ def browser_init(context):
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    ### HEADLESS MODE ####
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # service = Service(executable_path='/Users/svetlanalevinsohn/careerist/15-python-selenium-automation/chromedriver')
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
+
+    ### OTHER BROWSERS ###
+    service = Service(executable_path=r"C:\Users\gagan\Documents\python-selenium-automation\firefoxdriver\geckodriver.exe")
+    context.driver = webdriver.Firefox(service=service)
+
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # options.add_argument("window-size=1920,1080")
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(options=options,service=service)
 
     context.driver.maximize_window()
 
