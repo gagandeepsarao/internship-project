@@ -5,12 +5,12 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class HomePage(Page):
-    SUBSCRIPTION_BUTTON = (By.XPATH,'//div[text()="Get a free subscription"]')
+    CONNECT_COMPANY_BUTTON = (By.XPATH,'//div[text()="Connect the company"]')
     DESCRIPTION_STEP = (By.XPATH,'//div[@class= "step-text"]')
     SUBSCRIPTION_PLAN = (By.XPATH,'//a[text()="Subscription plans"]')
 
-    def click_subscription_button(self):
-        self.click(*self.SUBSCRIPTION_BUTTON)
+    def click_connect_company(self):
+        self.click(*self.CONNECT_COMPANY_BUTTON)
 
     def user_switched_to_window(self):
         self.wait.until(EC.new_window_is_opened)

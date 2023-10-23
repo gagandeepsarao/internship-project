@@ -2,9 +2,9 @@ from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
 
-@when('Click on “Get a free subscription”')
-def click_get_free_subscription(context):
-    context.app.home_page.click_subscription_button()
+@when('Click on “Connect the Company”')
+def click_connect_company(context):
+    context.app.home_page.click_connect_company()
 
 @then('Switch to the new tab')
 def user_switched_to_window(context):
