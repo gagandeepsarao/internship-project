@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from support.logger import logger
 
 class Page:
 
@@ -9,18 +9,21 @@ class Page:
         self.wait = WebDriverWait(self.driver, 10)
 
     def click(self, *locator):
+        logger.info(f"Clicking on {locator}")
         self.driver.find_element(*locator).click()
 
     def refresh(self):
         self.driver.refresh()
 
     def find_element(self, *locator):
+        logger.info(f"Searching for {locator}")
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
         return self.driver.find_elements(*locator)
 
     def input_text(self, text, *locator):
+        logger.info(f"Inputting text on {text}")
         e = self.driver.find_element(*locator)
         e.send_keys(text)
 
@@ -29,18 +32,18 @@ class Page:
 
     def get_windows(self):
         windows = self.driver.window_handles
-        print(windows)
+        logger.info(f"{windows}")
         return windows
 
     def switch_to_new_window(self):
         self.wait.until(EC.new_window_is_opened)
         all_windows = self.driver.window_handles
         print(all_windows)
-        print(f'Switching to {all_windows[1]}')
+        logger.info(f'Switching to {all_windows[1]}')
         self.driver.switch_to.window(all_windows[1])
 
     def switch_to_window(self, window_id):
-        print(f'Switching to {window_id}')
+        logger.info(f'Switching to {window_id}')
         self.driver.switch_to.window(window_id)
 
     def close_page(self):
